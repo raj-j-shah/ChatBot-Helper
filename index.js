@@ -5,9 +5,9 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/calculate-emi', (req, res) => {
-  const loanAmount = req.body.queryResult.loanamount;
+  const loanAmount = JSON.parse(req.body.queryResult.fulfillmentText).loanamount;
   const interestRate = 10 / 100; // Convert percentage to decimal
-  const tenure = req.body.queryResult.tenure;
+  const tenure = JSON.parse(req.body.queryResult.fulfillmentText).tenure;
   console.log(req.body);
   console.log(loanAmount+" ,"+tenure);
 console.log("here")
