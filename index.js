@@ -14,11 +14,23 @@ app.post('/calculate-emi', (req, res) => {
   const monthlyInterestRate = interestRate / 12;
   const numberOfPayments = tenure * 12;
 
+  var IRR = (10 / 100) / 12;
+  var PresentValueInterstFector = Math.pow((1 + IRR), tenure);
+
+  var PeriodicPayment = loanAmount * ((IRR * PresentValueInterstFector) / (PresentValueInterstFector - 1));
+  var finalEmi = parseFloat(PeriodicPayment.toFixed(2));
+
+
+
+
+
+
+
   const emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
     (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
   const response = {
-    fulfillmentText: `Your EMI is Rs.${emi.toFixed(2)} per month.`,
+    fulfillmentText: `Your EMI is Rs.${finalEmi} per month.`,
   };
 
   res.json(response);
