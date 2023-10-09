@@ -74,7 +74,7 @@ app.post('/get-response', async (req, res) => {
         const mod_user_name = curr_user[0].user_name;
         await user.findByIdAndUpdate(mod_userid, { "phone_no": cleanInput });
         const response = {
-          fulfillmentText: `${mod_user_name} enter your email`,
+          fulfillmentText: `${mod_user_name} ,Please enter your Email`,
         };
         res.json(response);
       }
@@ -111,7 +111,7 @@ app.post('/get-response', async (req, res) => {
     }
     else {
       const gen_res = {
-        "fulfillmentText": "Phone number is invalid"
+        "fulfillmentText": "email is invalid"
       }
       res.json(gen_res);
     }
