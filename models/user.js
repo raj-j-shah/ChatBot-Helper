@@ -4,7 +4,7 @@ const {isEmail} = require("validator");
 const user = mongoose.model('user',{
     session:{
         type: String,
-        required:false
+        required:true
     },
     user_name:{
         type: String,
