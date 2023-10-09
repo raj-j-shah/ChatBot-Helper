@@ -47,7 +47,7 @@ app.post('/get-response', (req,res) => {
     console.log("namei");
       console.log("name aaya");
     const ssid = (req.body.queryResult).session;
-    const name = JSON.parse(req.body.queryResult.fulfillmentText).name;
+    const name = req.body.queryResult.parameters.name.name;
     const new_user = new user({"user_name":name, "session":ssid});
     new_user.save();
     const response = {
