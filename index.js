@@ -32,6 +32,7 @@ function calEmi(req) {
   };
   return response
 }
+
 app.post('/get-response', async (req, res) => {
 
   console.log(req.body.queryResult);
@@ -105,7 +106,7 @@ app.post('/get-response', async (req, res) => {
       const mod_user_name = curr_user[0].user_name;
       await user.findByIdAndUpdate(mod_userid, { "email_id": eid });
       const response = {
-        fulfillmentText: `${mod_user_name} do you want loan?`,
+        fulfillmentText: `${mod_user_name}, Do you want Loan?`,
       };
       res.json(response);
     }
