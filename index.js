@@ -28,7 +28,7 @@ function calEmi(req) {
     (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
   const response = {
-    fulfillmentText: `Your EMI is Rs.${finalEmi} per month.`,
+    fulfillmentText: `Your EMI is Rs.${finalEmi} per month. \nThese results are for indicative purposes only. Actual results may vary. For exact details, please contact us at helpdesk@tvscredit.com.`,
   };
   return response
 }
