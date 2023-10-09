@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-// const user = require('./models/user')
+require('./controller/mongoose');
+const user = require('./models/user')
 app.use(bodyParser.json());
 
 function calEmi(req){
@@ -33,7 +34,7 @@ function calEmi(req){
 }
 app.post('/get-response', (req,res) => {
 
-  // console.log(req.body.queryResult);
+  console.log(req.body.queryResult);
   if((req.body.queryResult).action==='Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom'){
     console.log("emi");
     res.json(calEmi(req));
@@ -45,6 +46,7 @@ app.post('/get-response', (req,res) => {
   if((req.body.queryResult).action==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
     console.log("namei");
       console.log("name aaya");
+
   } 
 
 
