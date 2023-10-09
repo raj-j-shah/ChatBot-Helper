@@ -33,7 +33,7 @@ function calEmi(req){
 }
 app.post('/get-response', (req,res) => {
 
-  console.log(req.body.queryResult);
+  // console.log(req.body.queryResult);
   if((req.body.queryResult).action==='Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom'){
     console.log("emi");
     res.json(calEmi(req));
