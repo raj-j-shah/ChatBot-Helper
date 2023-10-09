@@ -93,7 +93,28 @@ app.post('/get-response', async (req, res) => {
       res.json(gen_res);
 
     }
+  }
 
+  else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom.Customer-info-custom-custom.Customer-info-custom-custom-custom') {
+    const eid = req.body.queryResult.parameters.email;
+    const ssid = req.body.session;
+    const curr_user = await user.find({ "session": ssid });
+    if (curr_user.length > 0) {
+      console.log("saving update....")
+      const mod_userid = curr_user[0]._id;
+      const mod_user_name = curr_user[0].user_name;
+      await user.findByIdAndUpdate(mod_userid, { "email_id": eid });
+      const response = {
+        fulfillmentText: `${mod_user_name} do you want loan?`,
+      };
+      res.json(response);
+    }
+    else {
+      const gen_res = {
+        "fulfillmentText": "Phone number is invalid"
+      }
+      res.json(gen_res);
+    }
   }
   else {
     const gen_res = {
