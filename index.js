@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 // const user = require('./models/user')
 app.use(bodyParser.json());
+
 function calEmi(req){
   const loanAmount = JSON.parse(req.body.queryResult.fulfillmentText).loanamount;
   const interestRate = 10 / 100; // Convert percentage to decimal
@@ -33,15 +34,15 @@ function calEmi(req){
 app.post('/get-response', (req,res) => {
 
   console.log(req.body.queryResult);
-  if((req.body.queryResult).acion==='Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom'){
+  if((req.body.queryResult).action==='Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom'){
     console.log("emi");
     res.json(calEmi(req));
   }
-  if((req.body.queryResult).acion==='Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom'){
+  if((req.body.queryResult).action==='Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom'){
     console.log("emi");
     res.json(calEmi(req));
   }
-  if((req.body.queryResult).acion==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
+  if((req.body.queryResult).action==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
     console.log("namei");
       console.log("name aaya");
   } 
