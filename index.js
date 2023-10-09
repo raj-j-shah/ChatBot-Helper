@@ -72,9 +72,9 @@ app.post('/get-response', async (req, res) => {
         console.log("saving update....")
         const mod_userid = curr_user[0]._id;
         const mod_user_name = curr_user[0].user_name;
-        user.findByIdAndUpdate(mod_userid, { "phone_no": cleanInput });
+        await user.findByIdAndUpdate(mod_userid, { "phone_no": cleanInput });
         const response = {
-          fulfillmentText: `${mod_user_name}} enter your email`,
+          fulfillmentText: `${mod_user_name} enter your email`,
         };
         res.json(response);
       }
