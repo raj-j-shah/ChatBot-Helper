@@ -38,7 +38,7 @@ app.post('/get-response', (req,res) => {
   if(req.body.queryResult.acion==="Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom"){
     res.json(calEmi(req));
   }
-  if(req.body.queryResult.acion==="Default-Welcome-Intent.Customer_info-custom"){
+  if(req.body.queryResult.acion==="DefaultWelcomeIntent.DefaultWelcomeIntent-custom"){
       console.log("name aaya");
   } 
 
