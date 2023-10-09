@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-
+const user = require('./models/user')
 app.use(bodyParser.json());
 function calEmi(req){
   const loanAmount = JSON.parse(req.body.queryResult.fulfillmentText).loanamount;
@@ -38,11 +38,13 @@ app.post('/get-response', (req,res) => {
   if(req.body.queryResult.acion==="Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom"){
     res.json(calEmi(req));
   }
-  if(req.body.queryResult.acion==="")
+  if(req.body.queryResult.acion==="Default-Welcome-Intent.Customer_info-custom"){
+      console.log("name aaya");
+  } 
 
 
 
-  res.json(response);
+  res.json("asd");
 });
 
 const PORT = process.env.PORT || 3000;
