@@ -39,11 +39,11 @@ app.post('/get-response', (req,res) => {
     console.log("emi");
     res.json(calEmi(req));
   }
-  if((req.body.queryResult).action==='Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom'){
+  else if((req.body.queryResult).action==='Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom'){
     console.log("emi");
     res.json(calEmi(req));
   }
-  if((req.body.queryResult).action==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
+  else if((req.body.queryResult).action==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
     console.log("namei");
       console.log("name aaya");
     const ssid = req.body.session;
@@ -57,10 +57,13 @@ app.post('/get-response', (req,res) => {
     res.json(response);
 
   } 
+  else if((req.body.queryResult).action===''){
+  }
 
-
-
-  res.json("asd");
+  const gen_res = {
+    "fulfillmentText": "bye"
+  }
+   res.json(gen_res);
 });
 
 const PORT = process.env.PORT || 3000;
