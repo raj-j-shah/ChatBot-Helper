@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 require('./controller/mongoose');
-const user = require('./models/user')
+const user = require('./models/user');
 app.use(bodyParser.json());
 
 function calEmi(req){
@@ -46,7 +46,15 @@ app.post('/get-response', (req,res) => {
   if((req.body.queryResult).action==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
     console.log("namei");
       console.log("name aaya");
-    
+    const ssid = (req.body.queryResult).session;
+    const name = JSON.parse(req.body.queryResult.fulfillmentText).name;
+    const new_user = new user({"user_name":name, "session":ssid});
+    new_user.save();
+    const response = {
+      fulfillmentText: `Hi, ${name} please enter your phone number`,
+    };
+    res.json(response);
+
   } 
 
 

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const {isEmail} = require("validator");
 
-const userSchema = mongoose.Schema({
+const user = mongoose.model('user',{
     session:{
         type: String,
         required:false
@@ -24,8 +24,6 @@ const userSchema = mongoose.Schema({
         required: false,
         default: "0"
     }
-})
+});
 
-const userModel = mongoose.model("user_details",userSchema);
-
-module.exports = userModel;
+module.exports = user;
