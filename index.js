@@ -5,14 +5,14 @@ require('./controller/mongoose');
 const user = require('./models/user');
 app.use(bodyParser.json());
 
-function calEmi(req){
+function calEmi(req) {
   const loanAmount = JSON.parse(req.body.queryResult.fulfillmentText).loanamount;
   const interestRate = 10 / 100; // Convert percentage to decimal
   const tenure = JSON.parse(req.body.queryResult.fulfillmentText).tenure;
-//   console.log(req.body);
-//   console.log(loanAmount+" ,"+tenure);
-// console.log("here")
-// hi
+  //   console.log(req.body);
+  //   console.log(loanAmount+" ,"+tenure);
+  // console.log("here")
+  // hi
 
   console.log(req);
   const monthlyInterestRate = interestRate / 12;
@@ -32,39 +32,66 @@ function calEmi(req){
   };
   return response
 }
-app.post('/get-response', (req,res) => {
+app.post('/get-response', async (req, res) => {
 
   console.log(req.body.queryResult);
-  if((req.body.queryResult).action==='Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom'){
+  if ((req.body.queryResult).action === 'Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom') {
     console.log("emi");
     res.json(calEmi(req));
   }
-  else if((req.body.queryResult).action==='Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom'){
+  else if ((req.body.queryResult).action === 'Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom') {
     console.log("emi");
     res.json(calEmi(req));
   }
-  else if((req.body.queryResult).action==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
+  else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom') {
     console.log("namei");
-      console.log("name aaya");
+    console.log("name aaya");
     const ssid = req.body.session;
     console.log(ssid);
     const name = req.body.queryResult.parameters.name.name;
-    const new_user = new user({"user_name":name, "session":ssid});
+    const new_user = new user({ "user_name": name, "session": ssid });
     new_user.save();
     const response = {
       fulfillmentText: `Hi, ${name} please enter your phone number`,
     };
     res.json(response);
 
-  } 
-  else if((req.body.queryResult).action===''){
   }
-  else{
-  const gen_res = {
-    "fulfillmentText": "bye"
+  else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom.Customer-info-custom-custom') {
+    const pno = req.body.queryResult.parameters['phone-number'];
+    var phoneNumberPattern = /^\d{10}$/;
+
+    // Remove any non-digit characters from the input string
+    var cleanInput = input.replace(/\D/g, '');
+
+    // Test if the cleaned input matches the pattern
+    if (phoneNumberPattern.test(cleanInput)) {
+      const ssid = req.body.session;
+      const curr_user = await user.find({ "session": ssid });
+      if (curr_user.length > 0) {
+        const mod_userid = curr_user[0]._id;
+        const mod_user_name = curr_user[0].user_name;
+        user.findByIdAndUpdate(mod_userid, { "phone_no": cleanInput });
+        const response = {
+          fulfillmentText: `${mod_user_name}} enter your email`,
+        };
+        res.json(response);
+      }
+      else{
+        const gen_res = {
+          "fulfillmentText": "Phone number is invalid"
+        }
+        res.json(gen_res);
+      }
+    }
+
   }
-   res.json(gen_res);
-  } 
+  else {
+    const gen_res = {
+      "fulfillmentText": "bye"
+    }
+    res.json(gen_res);
+  }
 });
 
 const PORT = process.env.PORT || 3000;
