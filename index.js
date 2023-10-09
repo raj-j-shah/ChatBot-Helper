@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const user = require('./models/user')
+// const user = require('./models/user')
 app.use(bodyParser.json());
 function calEmi(req){
   const loanAmount = JSON.parse(req.body.queryResult.fulfillmentText).loanamount;
