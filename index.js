@@ -31,14 +31,18 @@ function calEmi(req){
   return response
 }
 app.post('/get-response', (req,res) => {
+
   console.log(req.body);
   if(req.body.queryResult.acion==="Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom"){
+    console.log("emi");
     res.json(calEmi(req));
   }
   if(req.body.queryResult.acion==="Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom"){
+    console.log("emi");
     res.json(calEmi(req));
   }
   if(req.body.queryResult.acion==="DefaultWelcomeIntent.DefaultWelcomeIntent-custom"){
+    console.log("namei");
       console.log("name aaya");
   } 
 
