@@ -12,6 +12,8 @@ app.post('/calculate-emi', (req, res) => {
 //   console.log(loanAmount+" ,"+tenure);
 // console.log("here")
 // hi
+
+  console.log(req);
   const monthlyInterestRate = interestRate / 12;
   const numberOfPayments = tenure * 12;
 
@@ -20,12 +22,6 @@ app.post('/calculate-emi', (req, res) => {
 
   var PeriodicPayment = loanAmount * ((IRR * PresentValueInterstFector) / (PresentValueInterstFector - 1));
   var finalEmi = parseFloat(PeriodicPayment.toFixed(2));
-
-
-
-
-
-
 
   const emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
     (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
