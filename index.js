@@ -46,7 +46,7 @@ app.post('/get-response', (req,res) => {
   if((req.body.queryResult).action==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
     console.log("namei");
       console.log("name aaya");
-    const ssid = (req.body.queryResult).session;
+    const ssid = req.body.session;
     console.log(ssid);
     const name = req.body.queryResult.parameters.name.name;
     const new_user = new user({"user_name":name, "session":ssid});
