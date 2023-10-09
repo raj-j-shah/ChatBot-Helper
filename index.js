@@ -78,12 +78,20 @@ app.post('/get-response', async (req, res) => {
         };
         res.json(response);
       }
-      else{
+      else {
         const gen_res = {
           "fulfillmentText": "Phone number is invalid"
         }
         res.json(gen_res);
       }
+    }
+    else {
+
+      const gen_res = {
+        "fulfillmentText": "Phone number is invalid"
+      }
+      res.json(gen_res);
+
     }
 
   }
