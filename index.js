@@ -11,6 +11,7 @@ app.post('/calculate-emi', (req, res) => {
 //   console.log(req.body);
 //   console.log(loanAmount+" ,"+tenure);
 // console.log("here")
+// hi
   const monthlyInterestRate = interestRate / 12;
   const numberOfPayments = tenure * 12;
 
