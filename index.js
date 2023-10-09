@@ -59,11 +59,12 @@ app.post('/get-response', (req,res) => {
   } 
   else if((req.body.queryResult).action===''){
   }
-
+  else{
   const gen_res = {
     "fulfillmentText": "bye"
   }
    res.json(gen_res);
+  } 
 });
 
 const PORT = process.env.PORT || 3000;
