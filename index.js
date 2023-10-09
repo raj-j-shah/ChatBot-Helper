@@ -46,7 +46,7 @@ app.post('/get-response', (req,res) => {
   if((req.body.queryResult).action==='DefaultWelcomeIntent.DefaultWelcomeIntent-custom'){
     console.log("namei");
       console.log("name aaya");
-
+    
   } 
 
 
