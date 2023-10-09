@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
         required :false
     },
     email_id:{
-        type: string,
+        type: String,
         validate: [ isEmail, 'invalid email'],
         required: false
     },
