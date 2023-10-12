@@ -1,5 +1,5 @@
 const user = require('../models/user');
-async function savename(req){
+async function savename(req,res){
     const ssid = req.body.session;
     console.log(ssid);
     const name = req.body.queryResult.parameters.name.name;
@@ -8,6 +8,6 @@ async function savename(req){
     const response = {
       fulfillmentText: `Hi, ${name} please enter your phone number`,
     };
-    return response;
+    res.json(response);
 }
 module.exports = savename;

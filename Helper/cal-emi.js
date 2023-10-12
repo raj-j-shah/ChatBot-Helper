@@ -1,4 +1,4 @@
-function calEmi(req) {
+function calEmi(req,res) {
     const loanAmount = JSON.parse(req.body.queryResult.fulfillmentText).loanamount;
     const interestRate = 10 / 100; // Convert percentage to decimal
     const tenure = JSON.parse(req.body.queryResult.fulfillmentText).tenure;
@@ -23,6 +23,6 @@ function calEmi(req) {
     const response = {
       fulfillmentText: `Your EMI is Rs.${finalEmi} per month. \nThese results are for indicative purposes only. Actual results may vary. For exact details, please contact us at helpdesk@tvscredit.com.`,
     };
-    return response
+    res.json(response);
   }
   module.exports = calEmi;

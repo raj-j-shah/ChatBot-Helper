@@ -1,5 +1,5 @@
 const user = require('../models/user');
-async function saveEmail(req){
+async function saveEmail(req,res){
     const eid = req.body.queryResult.parameters.email;
     const ssid = req.body.session;
     const curr_user = await user.find({ "session": ssid });
@@ -11,13 +11,13 @@ async function saveEmail(req){
       const response = {
         fulfillmentText: `${mod_user_name}, Do you want Loan?`,
       };
-      return response;
+      res.json(response);
     }
     else {
       const gen_res = {
         "fulfillmentText": "email is invalid"
       }
-      return gen_res;
+      res.json(gen_res);
     }
 }
 module.exports = saveEmail;

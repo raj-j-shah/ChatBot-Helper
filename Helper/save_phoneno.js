@@ -1,5 +1,5 @@
 const user = require('../models/user');
-async function savePhone(req){
+async function savePhone(req,res){
     const pno = req.body.queryResult.parameters['phone-number'];
     var phoneNumberPattern = /^\d{10}$/;
     console.log("pno");
@@ -18,13 +18,13 @@ async function savePhone(req){
         const response = {
           fulfillmentText: `${mod_user_name} ,Please enter your Email`,
         };
-        return response;
+        res.json(response);
       }
       else {
         const gen_res = {
           "fulfillmentText": "Phone number is invalid"
         }
-        return response;
+        res.json(response);
       }
     }
     else {
@@ -32,7 +32,7 @@ async function savePhone(req){
       const gen_res = {
         "fulfillmentText": "Phone number is invalid"
       }
-      return response;
+      res.json(gen_res);
 
     }
 }

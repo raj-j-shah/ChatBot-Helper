@@ -13,28 +13,26 @@ app.post('/get-response', async (req, res) => {
 
   console.log(req.body.queryResult);
   if ((req.body.queryResult).action === 'Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom') {
-    console.log("emi");
-    res.json(calEmi(req));
+    calEmi(req);
   }
 
   else if ((req.body.queryResult).action === 'Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom') {
-    console.log("emi");
-    res.json(calEmi(req));
+    calEmi(req);
   }
 
   else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom') {
-    const response = saveName(req);
-    res.json(response);
+    saveName(req);
+    
   }
 
   else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom.Customer-info-custom-custom') {
-    const response = savePhone(req);
-    res.json(response);
+    savePhone(req);
+  
   }
 
   else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom.Customer-info-custom-custom.Customer-info-custom-custom-custom') {
-    const response = saveEmail(req);
-    res.json(response);
+    saveEmail(req);
+    
   }
 
   else {
