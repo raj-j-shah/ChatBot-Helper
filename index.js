@@ -21,17 +21,17 @@ app.post('/get-response', async (req, res) => {
   }
 
   else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom') {
-    saveName(req);
+    saveName(req,res);
     
   }
 
   else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom.Customer-info-custom-custom') {
-    savePhone(req);
+    savePhone(req,res);
   
   }
 
   else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom.Customer-info-custom-custom.Customer-info-custom-custom-custom') {
-    saveEmail(req);
+    saveEmail(req,res);
     
   }
 
