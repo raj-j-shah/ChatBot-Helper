@@ -6,7 +6,7 @@ function calEmi(req,res) {
     //   console.log(loanAmount+" ,"+tenure);
     // console.log("here")
     // hi
-  
+    console.log(loanAmount,tenure);
     console.log(req);
     const monthlyInterestRate = interestRate / 12;
     const numberOfPayments = tenure * 12;
