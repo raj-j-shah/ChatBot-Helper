@@ -13,11 +13,11 @@ app.post('/get-response', async (req, res) => {
 
   console.log(req.body.queryResult);
   if ((req.body.queryResult).action === 'Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom') {
-    calEmi(req);
+    calEmi(req,res);
   }
 
   else if ((req.body.queryResult).action === 'Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom') {
-    calEmi(req);
+    calEmi(req,res);
   }
 
   else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom') {
