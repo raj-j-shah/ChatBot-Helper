@@ -1,5 +1,4 @@
-
-const user = require('./models/user');
+const user = require('../models/user');
 async function saveEmail(req){
     const eid = req.body.queryResult.parameters.email;
     const ssid = req.body.session;

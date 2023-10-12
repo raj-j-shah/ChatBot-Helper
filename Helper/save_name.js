@@ -1,4 +1,4 @@
-const user = require('./models/user');
+const user = require('../models/user');
 async function savename(req){
     const ssid = req.body.session;
     console.log(ssid);

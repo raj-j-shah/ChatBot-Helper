@@ -1,4 +1,4 @@
-const user = require('./models/user');
+const user = require('../models/user');
 async function savePhone(req){
     const pno = req.body.queryResult.parameters['phone-number'];
     var phoneNumberPattern = /^\d{10}$/;
