@@ -12,11 +12,11 @@ app.use(bodyParser.json());
 app.post('/get-response', async (req, res) => {
 
   console.log(req.body.queryResult);
-  if ((req.body.queryResult).action === 'Two_wheeler.Two_wheeler-yes.Two_wheeler-yes-custom') {
+  if ((req.body.queryResult).action === 'Two_wheeler.Two_wheeler-yes.Two_wheeler-yes-custom'||req.body.queryResult.action==='Two_wheeler.Two_wheeler-custom.Two_wheeler-custom-custom') {
     calEmi(req,res);
   }
 
-  else if ((req.body.queryResult).action === 'Four_wheeler.Four_wheeler-yes.Four_wheeler-yes-custom') {
+  else if ((req.body.queryResult).action === 'Four_wheeler.Four_wheeler-yes.Four_wheeler-yes-custom'||req.body.queryResult.action==='Four_wheeler.Four_wheeler-custom.Four_wheeler-custom-custom') {
     calEmi(req,res);
   }
 
