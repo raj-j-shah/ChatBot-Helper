@@ -2,6 +2,7 @@ function calEmi(req,res) {
     const loanAmount = req.body.queryResult.parameters.loanamount;
     const interestRate = 10 / 100; // Convert percentage to decimal
     const tenure = req.body.queryResult.parameters.tenure;
+    if(tenure.amount) tenure = tenure.amount;
     //   console.log(req.body);
     //   console.log(loanAmount+" ,"+tenure);
     // console.log("here")
