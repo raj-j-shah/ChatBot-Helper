@@ -39,7 +39,10 @@ const user = mongoose.model('user',{
     amount:{
         type:Number,
         required:false
+    }},
+    {
+        timestamps: true // This option will add createdAt and updatedAt fields
     }
-});
+);
 
 module.exports = user;
