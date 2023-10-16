@@ -26,11 +26,13 @@ const user = mongoose.model('user',{
     },
     twlr:{
         type:Boolean,
-        required:false
+        required:false,
+        default: false
     },
     frwlr:{
         type:Boolean,
-        required:false
+        required:false,
+        default: false
     },
     tenure:{
         type:Number,
