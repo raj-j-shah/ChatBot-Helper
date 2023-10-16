@@ -1,7 +1,7 @@
 function calEmi(req,res) {
     const loanAmount = req.body.queryResult.parameters.loanamount;
     const interestRate = 10 / 100; // Convert percentage to decimal
-    const tenure = req.body.queryResult.parameters.tenure;
+    let tenure = req.body.queryResult.parameters.tenure;
     if(tenure.amount) tenure = tenure.amount;
     //   console.log(req.body);
     //   console.log(loanAmount+" ,"+tenure);
@@ -14,7 +14,6 @@ function calEmi(req,res) {
   
     var IRR = (10 / 100) / 12;
     var PresentValueInterstFector = Math.pow((1 + IRR), tenure);
-  
     var PeriodicPayment = loanAmount * ((IRR * PresentValueInterstFector) / (PresentValueInterstFector - 1));
     var finalEmi = parseFloat(PeriodicPayment.toFixed(2));
   
