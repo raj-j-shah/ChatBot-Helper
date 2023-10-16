@@ -5,6 +5,7 @@ const calEmi = require('./Helper/cal-emi');
 const saveName = require('./Helper/save_name');
 const savePhone = require('./Helper/save_phoneno');
 const saveEmail = require('./Helper/save_email');
+const addPrg = require('./Helper/addPrg')
 const PORT = process.env.PORT || 3000;
 require('./controller/mongoose');
 app.use(bodyParser.json());
@@ -33,6 +34,12 @@ app.post('/get-response', async (req, res) => {
   else if ((req.body.queryResult).action === 'DefaultWelcomeIntent.DefaultWelcomeIntent-custom.Customer-info-custom-custom.Customer-info-custom-custom-custom') {
     saveEmail(req,res);
     
+  }
+  else if(req.body.queryResult.parameters.type_of_insurance === 'Two-wheeler'){
+    addPrg(req,res);
+  }
+  else if(req.body.queryResult.parameters.type_of_insurance === 'Car'){
+    addPrg(req,res)
   }
 
   else {

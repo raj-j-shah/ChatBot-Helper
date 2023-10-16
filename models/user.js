@@ -23,6 +23,22 @@ const user = mongoose.model('user',{
         type: String,
         required: false,
         default: "0"
+    },
+    twlr:{
+        type:Boolean,
+        required:false
+    },
+    frwlr:{
+        type:Boolean,
+        required:false
+    },
+    tenure:{
+        type:Number,
+        required:false
+    },
+    amount:{
+        type:Number,
+        required:false
     }
 });
 
