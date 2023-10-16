@@ -36,11 +36,13 @@ const user = mongoose.model('user',{
     },
     tenure:{
         type:Number,
-        required:false
+        required:false,
+        default: 0
     },
     amount:{
         type:Number,
-        required:false
+        required:false,
+        default: 0
     }}
 );
 
