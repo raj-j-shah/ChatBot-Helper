@@ -1,13 +1,10 @@
+//calculates emi
 const user = require('../models/user');
 async function calEmi(req,res) {
     const loanAmount = req.body.queryResult.parameters.loanamount;
     const interestRate = 10 / 100; // Convert percentage to decimal
     let tenure = req.body.queryResult.parameters.tenure;
     if(tenure.amount) tenure = tenure.amount;
-    //   console.log(req.body);
-    //   console.log(loanAmount+" ,"+tenure);
-    // console.log("here")
-    // hi
     console.log(loanAmount,tenure);
     console.log(req);
     const monthlyInterestRate = interestRate / 12;

@@ -1,3 +1,4 @@
+//user mongoose model
 const mongoose = require("mongoose");
 const {isEmail} = require("validator");
 

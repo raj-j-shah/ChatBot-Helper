@@ -1,3 +1,4 @@
+//saves email of the user
 const user = require('../models/user');
 async function saveEmail(req,res){
     const eid = req.body.queryResult.parameters.email;

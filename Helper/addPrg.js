@@ -1,3 +1,4 @@
+// adds progress to the user scheme whether he/she is interested in two or four wheeler
 const user = require('../models/user');
 async function addPrg(req,res){
     const ssid = req.body.session;

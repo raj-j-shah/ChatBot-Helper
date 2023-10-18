@@ -1,3 +1,4 @@
+//saves the name of the customer
 const user = require('../models/user');
 async function savename(req,res){
     const ssid = req.body.session;

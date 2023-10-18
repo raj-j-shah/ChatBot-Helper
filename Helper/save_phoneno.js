@@ -1,7 +1,8 @@
+// saves the phone no of the user
 const user = require('../models/user');
 async function savePhone(req,res){
     const pno = req.body.queryResult.parameters['phone-number'];
-    var phoneNumberPattern = /^\d{10}$/;
+    var phoneNumberPattern = /^\d{10}$/;//regular expression for a 10 digit number
     console.log("pno");
     // Remove any non-digit characters from the input string
     var cleanInput = pno.replace(/\D/g, '');
